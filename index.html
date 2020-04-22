@@ -23,19 +23,28 @@
     <style>
       body {
         background-image: url(https://cdn.pixabay.com/photo/2016/02/03/03/23/international-space-station-1176518_1280.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
       }
       h1 {
         color: white;
         text-align: center;
         font-family: "Gloria Hallelujah", cursive;
+        margin: auto;
       }
       #mapid {
-        bottom: 15px;
-        left: 416px;
+        margin: auto;
+        margin-top: 5%;
         height: 500px;
         width: 500px;
       }
       @media only screen and (max-width: 420px) {
+        h1 {
+          color: white;
+          text-align: center;
+          font-family: "Gloria Hallelujah", cursive;
+          margin: auto;
+        }
         #mapid {
           height: 300px;
           width: 600px;
@@ -43,6 +52,10 @@
         body {
           background-image: url("https://cdn.pixabay.com/photo/2016/02/03/03/23/international-space-station-1176518_1280.jpg");
           background-color: lightblue;
+          background-repeat: no-repeat;
+          background-size: cover;
+          margin: auto;
+          margin-bottom: 4%;
         }
       }
     </style>
@@ -58,7 +71,7 @@
       var myIcon = L.icon({
         iconUrl: "icon.png",
         iconSize: [30, 30],
-        iconAnchor: [25, 16]
+        iconAnchor: [25, 16],
       });
       //Map creation using leaflet.js
       const mymap = L.map("mapid").setView([0, 0], 1);
@@ -73,7 +86,7 @@
           maxZoom: 18,
           id: "mapbox/light-v10",
           accessToken:
-            "pk.eyJ1IjoiYXB1cm9vcDIxNDk2IiwiYSI6ImNrNGNrbnpndTBvbDMzZWtkNDRoamU3M3EifQ.TuSVwfUog6YV2giWu-6BQA"
+            "pk.eyJ1IjoiYXB1cm9vcDIxNDk2IiwiYSI6ImNrNGNrbnpndTBvbDMzZWtkNDRoamU3M3EifQ.TuSVwfUog6YV2giWu-6BQA",
         }
       ).addTo(mymap);
       //Function to get ISS cordinates from Open-notify org
