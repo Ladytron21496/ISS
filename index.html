@@ -99,9 +99,7 @@
       ).addTo(mymap);
       //Function to get ISS cordinates from Open-notify org
       async function getCords() {
-        const response = await fetch(
-          "https://api.wheretheiss.at/v1/satellites/25544"
-        );
+        const response = await fetch("http://api.open-notify.org/iss-now.json");
 
         const latlon = await response.json();
 
@@ -110,8 +108,8 @@
       }
       //Function for setting View of the map and view of marker after getting the data
       function setMarker(data) {
-        let latitude = data["latitude"];
-        let longitude = data["longitude"];
+        let latitude = data["iss_position"].latitude;
+        let longitude = data["iss_position"].longitude;
         //  console.log(data);
         if (flag == 0) {
           mymap.setView([latitude, longitude], 3);
