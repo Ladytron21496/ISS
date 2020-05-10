@@ -39,15 +39,20 @@
         width: 500px;
       }
       @media only screen and (max-width: 420px) {
+        .container {
+          height: 100vh;
+          width: 100vw;
+        }
         h1 {
           color: white;
           text-align: center;
           font-family: "Gloria Hallelujah", cursive;
-          margin: auto;
+          margin-top: 5%;
         }
         #mapid {
-          height: 300px;
-          width: 600px;
+          margin-top: 40%;
+          height: 200px;
+          width: 300px;
         }
         body {
           background-image: url("https://cdn.pixabay.com/photo/2016/02/03/03/23/international-space-station-1176518_1280.jpg");
@@ -62,8 +67,10 @@
     <title>ISS LIVE</title>
   </head>
   <body>
-    <h1>ISS LIVE LOCATION</h1>
-    <div id="mapid"></div>
+    <div class="container">
+      <h1>ISS LIVE LOCATION</h1>
+      <div id="mapid"></div>
+    </div>
     <script>
       // flag to set view of map for the first time
       var flag = 0;
