@@ -1,5 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Start of Async Drift Code -->
+  <script>
+    "use strict";
+
+    !(function () {
+      var t = (window.driftt = window.drift = window.driftt || []);
+      if (!t.init) {
+        if (t.invoked)
+          return void (
+            window.console &&
+            console.error &&
+            console.error("Drift snippet included twice.")
+          );
+        (t.invoked = !0),
+          (t.methods = [
+            "identify",
+            "config",
+            "track",
+            "reset",
+            "debug",
+            "show",
+            "ping",
+            "page",
+            "hide",
+            "off",
+            "on",
+          ]),
+          (t.factory = function (e) {
+            return function () {
+              var n = Array.prototype.slice.call(arguments);
+              return n.unshift(e), t.push(n), t;
+            };
+          }),
+          t.methods.forEach(function (e) {
+            t[e] = t.factory(e);
+          }),
+          (t.load = function (t) {
+            var e = 3e5,
+              n = Math.ceil(new Date() / e) * e,
+              o = document.createElement("script");
+            (o.type = "text/javascript"),
+              (o.async = !0),
+              (o.crossorigin = "anonymous"),
+              (o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js");
+            var i = document.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(o, i);
+          });
+      }
+    })();
+    drift.SNIPPET_VERSION = "0.3.1";
+    drift.load("65nk7afu2fsa");
+  </script>
+  <!-- End of Async Drift Code -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,19 +76,28 @@
     <style>
       body {
         background-image: url(https://cdn.pixabay.com/photo/2016/02/03/03/23/international-space-station-1176518_1280.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
       }
       h1 {
         color: white;
         text-align: center;
         font-family: "Gloria Hallelujah", cursive;
+        margin: auto;
       }
       #mapid {
-        bottom: 15px;
-        left: 416px;
+        margin: auto;
+        margin-top: 5%;
         height: 500px;
         width: 500px;
       }
       @media only screen and (max-width: 420px) {
+        h1 {
+          color: white;
+          text-align: center;
+          font-family: "Gloria Hallelujah", cursive;
+          margin: auto;
+        }
         #mapid {
           height: 300px;
           width: 600px;
@@ -43,6 +105,10 @@
         body {
           background-image: url("https://cdn.pixabay.com/photo/2016/02/03/03/23/international-space-station-1176518_1280.jpg");
           background-color: lightblue;
+          background-repeat: no-repeat;
+          background-size: cover;
+          margin: auto;
+          margin-bottom: 4%;
         }
       }
     </style>
@@ -58,7 +124,7 @@
       var myIcon = L.icon({
         iconUrl: "icon.png",
         iconSize: [30, 30],
-        iconAnchor: [25, 16]
+        iconAnchor: [25, 16],
       });
       //Map creation using leaflet.js
       const mymap = L.map("mapid").setView([0, 0], 1);
@@ -73,7 +139,7 @@
           maxZoom: 18,
           id: "mapbox/light-v10",
           accessToken:
-            "pk.eyJ1IjoiYXB1cm9vcDIxNDk2IiwiYSI6ImNrNGNrbnpndTBvbDMzZWtkNDRoamU3M3EifQ.TuSVwfUog6YV2giWu-6BQA"
+            "pk.eyJ1IjoiYXB1cm9vcDIxNDk2IiwiYSI6ImNrNGNrbnpndTBvbDMzZWtkNDRoamU3M3EifQ.TuSVwfUog6YV2giWu-6BQA",
         }
       ).addTo(mymap);
       //Function to get ISS cordinates from Open-notify org
